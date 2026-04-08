@@ -1,3 +1,6 @@
+**⚠️ DEPRECATED:** This project is no longer maintained. Please use [New Repo Link](https://github.com/lapic-ufjf/searchat-behavior) instead.
+---
+
 # A Framework to support empirical experimentation on Cognitive Biases in Search as Learning
 
 This repository contains the source code for the Xper4SAL, a framework for instantiating experiments on Cognitive Biases in Search as Learning.
