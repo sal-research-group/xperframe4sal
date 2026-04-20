@@ -75,6 +75,18 @@ export function PrivateRoutes(props) {
     navigate('/createtasks');
     setAnchorEl(null);
   }
+  const handleGoCreateSurveys = () => {
+    navigate('/CreateSurveys');
+    setAnchorEl(null);
+  }
+  const handleGoCreateExperiment = () => {
+    navigate('/CreateExperiment');
+    setAnchorEl(null);
+  }
+  const handleGoExperimentList= () => {
+    navigate('/ExperimentList');
+    setAnchorEl(null);
+  }
   const handleAccountButtonEnter = (event) => {
     setAnchorEl(event.currentTarget);
   };
@@ -111,6 +123,27 @@ export function PrivateRoutes(props) {
             <ListItemText primary={t('menu_task')} />
           </ListItemButton>
         </ListItem>
+        <ListItem disablePadding>
+          <ListItemButton onClick={handleGoCreateSurveys}>
+            <MailIcon />
+            <ListItemText primary={t('menu_surveys')} />
+          </ListItemButton>
+        </ListItem>
+
+        <ListItem disablePadding>
+          <ListItemButton onClick={handleGoCreateExperiment}>
+            <MailIcon />
+            <ListItemText primary={t('menu_experiments')} />
+          </ListItemButton>
+        </ListItem>
+
+        <ListItem disablePadding>
+          <ListItemButton onClick={handleGoExperimentList}>
+            <MailIcon />
+            <ListItemText primary={t('menu_experimentlist')} />
+          </ListItemButton>
+        </ListItem>
+
         <ListItem disablePadding>
           <ListItemButton onClick={handleGoContact}>
             <HomeIcon />
@@ -155,15 +188,31 @@ export function PrivateRoutes(props) {
           >
             {t('system_name')}
           </Typography>
-          <Box sx={{ minWidth: 270, textAlign: 'right', display: { xs: 'none', sm: 'block', md: 'block' } }}>
-            <Button sx={{ color: '#fff' }} onClick={handleGoHome}>
-              HOME
+          <Box 
+            sx={{ 
+              display: { xs: 'none', sm: 'flex' },  
+              gap: 1,  
+              justifyContent: 'flex-start',
+              alignItems: 'center',  
+            }}
+          >
+            <Button sx={{ color: '#fff', display: 'flex', alignItems: 'center' }} onClick={handleGoHome}>
+              {t('menu_home')}
             </Button>
-            <Button sx={{ color: '#fff', width: '85px' }} onClick={handleGoInstruction}>
+            <Button sx={{ color: '#fff', display: 'flex', alignItems: 'center' }} onClick={handleGoInstruction}>
               {t('menu_instructions')}
             </Button>
-            <Button sx={{ color: '#fff', width: '85px' }} onClick={handleGoCreateTasks}>
+            <Button sx={{ color: '#fff', display: 'flex', alignItems: 'center' }} onClick={handleGoCreateTasks}>
               {t('menu_task')}
+            </Button>
+            <Button sx={{ color: '#fff', display: 'flex', alignItems: 'center' }} onClick={handleGoCreateSurveys}>
+              {t('menu_surveys')}
+            </Button>
+            <Button sx={{ color: '#fff', display: 'flex', alignItems: 'center' }} onClick={handleGoCreateExperiment}>
+              {t('menu_experiments')}
+            </Button>
+            <Button sx={{ color: '#fff', display: 'flex', alignItems: 'center' }} onClick={handleGoExperimentList}>
+              {t('menu_experimentlist')}
             </Button>
             <Button sx={{ color: '#fff', width: '85px' }} onClick={handleGoContact}>
               {t('menu_contact')}
@@ -197,8 +246,8 @@ export function PrivateRoutes(props) {
               open={Boolean(anchorEl)}
               onClose={handleAccountButtonLeave}
             >
-              <MenuItem onClick={handleEditProfile}><AccountCircle />Meu perfil</MenuItem>
-              <MenuItem onClick={handleLogout}><ExitToAppIcon />Sair</MenuItem>
+              <MenuItem onClick={handleEditProfile}><AccountCircle />{t('My_profile')}</MenuItem>
+              <MenuItem onClick={handleLogout}><ExitToAppIcon />{t('Logout')}</MenuItem>
             </Menu>
           </Box>
         </Toolbar>

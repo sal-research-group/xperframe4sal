@@ -37,10 +37,20 @@ export class TaskProps {
 }
 
 @Schema()
+export class UserProps {
+  @Prop()
+  id: string;
+  @Prop()
+  name: string;
+  @Prop()
+  email: string;
+}
+
+@Schema()
 export class Experiment extends BaseEntity {
   @Prop({ required: true })
   name: string;
-  @Prop({ required: true })
+  @Prop()
   summary: string;
   @Prop()
   icfId: string;
@@ -49,7 +59,11 @@ export class Experiment extends BaseEntity {
   @Prop({ type: {}, default: {} })
   tasksProps: Record<string, TaskProps>;
   @Prop({ type: {}, default: {} })
+  userProps: Record<string, UserProps>;
+
+  @Prop({ type: {}, default: {} })
   steps: Record<StepsType, any>;
+
 }
 
 export const ExperimentSchema =
